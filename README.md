@@ -17,16 +17,16 @@ A personal finance management app built with Laravel 13, React 19, and Inertia.j
 
 ## Tech Stack
 
-| Layer | Tech |
-|-------|------|
-| Backend | Laravel 13, PHP 8.4 |
-| Frontend | React 19, TypeScript, Inertia v3 |
-| Styling | Tailwind CSS v4, shadcn/ui (new-york) |
-| Auth | Laravel Fortify + Passkeys |
-| AI | Laravel AI SDK (Gemini) |
-| Routes | Laravel Wayfinder (typed route codegen) |
+| Layer    | Tech                                         |
+| -------- | -------------------------------------------- |
+| Backend  | Laravel 13, PHP 8.4                          |
+| Frontend | React 19, TypeScript, Inertia v3             |
+| Styling  | Tailwind CSS v4, shadcn/ui (new-york)        |
+| Auth     | Laravel Fortify + Passkeys                   |
+| AI       | Laravel AI SDK (Gemini)                      |
+| Routes   | Laravel Wayfinder (typed route codegen)      |
 | Database | SQLite (default), MySQL/PostgreSQL supported |
-| Testing | Pest 4, PHPStan level 7 |
+| Testing  | Pest 4, PHPStan level 7                      |
 
 ## Requirements
 
@@ -39,7 +39,7 @@ A personal finance management app built with Laravel 13, React 19, and Inertia.j
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/duduitku.git
+git clone https://github.com/ricko-v/duduitku.git
 cd duduitku
 
 # One-command setup (installs deps, creates .env, migrates, builds frontend)

@@ -1,0 +1,401 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --font-mono:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Light Mode */
+:root {
+    --background: #fafaf9;
+    --foreground: #1c1917;
+    --card: #ffffff;
+    --card-foreground: #1c1917;
+    --popover: #ffffff;
+    --popover-foreground: #1c1917;
+    --primary: #d97706;
+    --primary-foreground: #ffffff;
+    --secondary: #f5f5f4;
+    --secondary-foreground: #57534e;
+    --muted: #f5f5f4;
+    --muted-foreground: #78716c;
+    --accent: #f5f5f4;
+    --accent-foreground: #1c1917;
+    --destructive: #e11d48;
+    --destructive-foreground: #ffffff;
+    --border: #e7e5e4;
+    --input: #e7e5e4;
+    --ring: #d97706;
+    --chart-1: #d97706;
+    --chart-2: #0284c7;
+    --chart-3: #9333ea;
+    --chart-4: #059669;
+    --chart-5: #e11d48;
+    --radius: 0.625rem;
+    --sidebar: #fafaf9;
+    --sidebar-foreground: #57534e;
+    --sidebar-primary: #d97706;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #f5f5f4;
+    --sidebar-accent-foreground: #1c1917;
+    --sidebar-border: #e7e5e4;
+    --sidebar-ring: #d97706;
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --shadow-color: #d97706;
+    --shadow-opacity: 0.08;
+    --shadow-blur: 8px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0;
+    --shadow-offset-y: 0;
+    --letter-spacing: 0em;
+    --spacing: 0.25rem;
+    --shadow-2xs: 0 1px 2px 0px rgba(28, 25, 23, 0.05);
+    --shadow-xs: 0 1px 2px 0px rgba(28, 25, 23, 0.05);
+    --shadow-sm: 0 1px 3px 0px rgba(28, 25, 23, 0.1), 0 1px 2px -1px rgba(28, 25, 23, 0.1);
+    --shadow: 0 1px 3px 0px rgba(28, 25, 23, 0.1), 0 1px 2px -1px rgba(28, 25, 23, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.1), 0 2px 4px -2px rgba(28, 25, 23, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.1), 0 4px 6px -4px rgba(28, 25, 23, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(28, 25, 23, 0.1), 0 8px 10px -6px rgba(28, 25, 23, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(28, 25, 23, 0.25);
+    --tracking-normal: 0em;
+}
+
+/* Dark Mode */
+.dark {
+    --background: #111113;
+    --foreground: #d4d4d8;
+    --card: #19191c;
+    --card-foreground: #d4d4d8;
+    --popover: #1f1f23;
+    --popover-foreground: #d4d4d8;
+    --primary: #f59e0b;
+    --primary-foreground: #111113;
+    --secondary: #212126;
+    --secondary-foreground: #9ca3af;
+    --muted: #212126;
+    --muted-foreground: #71717a;
+    --accent: #27272d;
+    --accent-foreground: #d4d4d8;
+    --destructive: #f43f5e;
+    --destructive-foreground: #ffffff;
+    --border: #2e2e35;
+    --input: #2e2e35;
+    --ring: #f59e0b;
+    --chart-1: #f59e0b;
+    --chart-2: #0ea5e9;
+    --chart-3: #a855f7;
+    --chart-4: #10b981;
+    --chart-5: #f43f5e;
+    --sidebar: #0e0e10;
+    --sidebar-foreground: #a1a1aa;
+    --sidebar-primary: #f59e0b;
+    --sidebar-primary-foreground: #111113;
+    --sidebar-accent: #212126;
+    --sidebar-accent-foreground: #d4d4d8;
+    --sidebar-border: #2e2e35;
+    --sidebar-ring: #f59e0b;
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --shadow-color: #f59e0b;
+    --shadow-opacity: 0.1;
+    --shadow-blur: 10px;
+    --shadow-spread: 0px;
+    --shadow-offset-x: 0;
+    --shadow-offset-y: 0;
+    --letter-spacing: 0em;
+    --spacing: 0.25rem;
+    --shadow-2xs: 0 0 6px 0px rgba(245, 158, 11, 0.06);
+    --shadow-xs: 0 0 6px 0px rgba(245, 158, 11, 0.06);
+    --shadow-sm: 0 0 10px 0px rgba(245, 158, 11, 0.08), 0 0 3px -1px rgba(245, 158, 11, 0.06);
+    --shadow: 0 0 14px 0px rgba(245, 158, 11, 0.08), 0 0 4px -1px rgba(245, 158, 11, 0.06);
+    --shadow-md: 0 0 18px 0px rgba(245, 158, 11, 0.1), 0 0 6px -2px rgba(245, 158, 11, 0.07);
+    --shadow-lg: 0 0 24px 0px rgba(245, 158, 11, 0.12), 0 0 8px -3px rgba(245, 158, 11, 0.08);
+    --shadow-xl: 0 0 32px 0px rgba(245, 158, 11, 0.14), 0 0 12px -4px rgba(245, 158, 11, 0.1);
+    --shadow-2xl: 0 0 48px 0px rgba(245, 158, 11, 0.2);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        letter-spacing: var(--tracking-normal);
+    }
+
+    .dark body {
+        background-image:
+            radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.02) 0%, transparent 50%),
+            linear-gradient(rgba(46, 46, 53, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(46, 46, 53, 0.3) 1px, transparent 1px);
+        background-size: 100% 100%, 40px 40px, 40px 40px;
+    }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeSlideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeSlideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes growWidth {
+    from {
+        width: 0%;
+    }
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 6px rgba(245, 158, 11, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 16px rgba(245, 158, 11, 0.3);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.gaming-glow {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.1), inset 0 0 10px rgba(245, 158, 11, 0.04);
+}
+
+.gaming-glow-cyan {
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.1), inset 0 0 10px rgba(14, 165, 233, 0.04);
+}
+
+.gaming-glow-purple {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.1), inset 0 0 10px rgba(168, 85, 247, 0.04);
+}
+
+.gaming-glow-gold {
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.1), inset 0 0 10px rgba(245, 158, 11, 0.04);
+}
+
+.gaming-glow-magenta {
+    box-shadow: 0 0 10px rgba(244, 63, 94, 0.1), inset 0 0 10px rgba(244, 63, 94, 0.04);
+}
+
+.gaming-border {
+    border: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.gaming-border-cyan {
+    border: 1px solid rgba(14, 165, 233, 0.15);
+}
+
+.gaming-card {
+    background: linear-gradient(135deg, rgba(25, 25, 28, 0.95), rgba(33, 33, 38, 0.8));
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(46, 46, 53, 0.8);
+}
+
+:root:not(.dark) .gaming-card {
+    background: #ffffff;
+    border: 1px solid #e7e5e4;
+    box-shadow: 0 1px 3px 0px rgba(28, 25, 23, 0.1);
+}
+
+.gaming-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.04), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+.gaming-hp-bar {
+    background: linear-gradient(90deg, #f43f5e, #fb7185);
+    box-shadow: 0 0 6px rgba(244, 63, 94, 0.3);
+}
+
+.gaming-xp-bar {
+    background: linear-gradient(90deg, #10b981, #34d399);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.3);
+}
+
+.gaming-mp-bar {
+    background: linear-gradient(90deg, #a855f7, #c084fc);
+    box-shadow: 0 0 6px rgba(168, 85, 247, 0.3);
+}
+
+.gaming-gold-bar {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    box-shadow: 0 0 6px rgba(245, 158, 11, 0.3);
+}
+
+@theme inline {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --font-serif:
+        ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    --radius: 0.625rem;
+    --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+    --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+    --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+    --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+    --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+    --tracking-normal: var(--tracking-normal);
+    --shadow-2xl: var(--shadow-2xl);
+    --shadow-xl: var(--shadow-xl);
+    --shadow-lg: var(--shadow-lg);
+    --shadow-md: var(--shadow-md);
+    --shadow: var(--shadow);
+    --shadow-sm: var(--shadow-sm);
+    --shadow-xs: var(--shadow-xs);
+    --shadow-2xs: var(--shadow-2xs);
+    --spacing: var(--spacing);
+    --letter-spacing: var(--letter-spacing);
+    --shadow-offset-y: var(--shadow-offset-y);
+    --shadow-offset-x: var(--shadow-offset-x);
+    --shadow-spread: var(--shadow-spread);
+    --shadow-blur: var(--shadow-blur);
+    --shadow-opacity: var(--shadow-opacity);
+    --color-shadow-color: var(--shadow-color);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}

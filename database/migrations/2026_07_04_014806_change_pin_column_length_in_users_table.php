@@ -9,15 +9,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('pin', 6)->nullable()->after('password');
-            $table->boolean('pin_enabled')->default(false)->after('pin');
+            $table->string('pin', 64)->nullable()->change();
         });
     }
 
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['pin', 'pin_enabled']);
+            $table->string('pin', 6)->nullable()->change();
         });
     }
 };
